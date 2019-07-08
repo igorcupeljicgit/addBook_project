@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+.steps{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    
+
+}
+.circle-genre,.circle-subgenre,.circle-addsubgenre,.circle-information{
+    width: 75px;
+    height: 75px;
+   border-radius: 50%;
+    background: rgb(218, 206, 206);
+}
+.selectedstep{
+    width: 75px;
+    color: aliceblue;
+    height: 75px;
+   border-radius: 50%;
+    background: rgb(133, 126, 126);
+}
+.visible{
+    display: none;
+}
