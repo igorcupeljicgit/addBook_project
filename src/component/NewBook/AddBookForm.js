@@ -69,8 +69,9 @@ class AddBook extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    
     if (this.validate()) {
-      console.log(this.state);
+      console.log("New Book",this.state);
       this.setState({
         title: "",
         author: "",

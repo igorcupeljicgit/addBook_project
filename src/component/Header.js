@@ -9,59 +9,59 @@ class Header extends React.Component {
     this.state = {
      locationUrl:"/"
     };
-    this.selectionPage = this.selectionPage.bind(this);
-    this.homePage = this.homePage.bind(this);
+    this.selectedSteps = this.selectedSteps.bind(this);
+    this.homePage=this.homePage.bind(this);
   }
   componentDidMount() {
-    this.selectionPage()
+    this.selectedSteps()
     }
-
-  selectionPage() {
-    const {locationUrl}=this.state
-    if (locationUrl === "/") {
-      document.querySelector(".container").classList.remove("visible");
-      document.querySelector(".circle-information").classList.remove("selectedstep")
-      const circle = document.querySelector(".circle-genre");
-      circle.classList.add("selectedstep");
-      document.querySelector(".circle-subgenre").classList.remove("selectedstep")
+    selectedSteps() {
+      const {locationUrl}=this.state
+      if (locationUrl === "/") {
+        document.querySelector(".container").classList.remove("visible");
+        document.querySelector(".circle-information").classList.remove("selectedstep")
+        const circle = document.querySelector(".circle-genre");
+        circle.classList.add("selectedstep");
+        document.querySelector(".circle-subgenre").classList.remove("selectedstep")
+      }
+      if (locationUrl === "/subgenre") {
+        document.querySelector(".circle-genre").classList.remove("selectedstep");
+        const circle2 = document.querySelector(".circle-subgenre");
+        document.querySelector(".circle-information").classList.remove("selectedstep")
+        circle2.classList.add("selectedstep");
+      }
+      if (locationUrl === "/newsubgenre") {
+        document
+          .querySelector(".circle-subgenre")
+          .classList.remove("selectedstep");
+        const circle3 = document.querySelector(".circle-addsubgenre");
+  
+        circle3.classList.add("selectedstep");
+      }
+  
+      if (locationUrl === "/information") {
+        document
+          .querySelector(".circle-addsubgenre")
+          .classList.remove("selectedstep");
+        const circle3 = document.querySelector(".circle-information");
+        document.querySelector(".circle-subgenre").classList.remove("selectedstep")
+        circle3.classList.add("selectedstep");
+      }
+      if (locationUrl === "/bookadded") {
+        document
+          .querySelector(".circle-information")
+          .classList.remove("selectedstep");
+        document.querySelector(".container").classList.add("visible");
+      }
     }
-    if (locationUrl === "/subgenre") {
-      document.querySelector(".circle-genre").classList.remove("selectedstep");
-      const circle2 = document.querySelector(".circle-subgenre");
-      document.querySelector(".circle-information").classList.remove("selectedstep")
-      circle2.classList.add("selectedstep");
-    }
-    if (locationUrl === "/newsubgenre") {
-      document
-        .querySelector(".circle-subgenre")
-        .classList.remove("selectedstep");
-      const circle3 = document.querySelector(".circle-addsubgenre");
-
-      circle3.classList.add("selectedstep");
-    }
-
-    if (locationUrl === "/information") {
-      document
-        .querySelector(".circle-addsubgenre")
-        .classList.remove("selectedstep");
-      const circle3 = document.querySelector(".circle-information");
-      document.querySelector(".circle-subgenre").classList.remove("selectedstep")
-      circle3.classList.add("selectedstep");
-    }
-    if (locationUrl === "/bookadded") {
-      document
-        .querySelector(".circle-information")
-        .classList.remove("selectedstep");
-      document.querySelector(".container").classList.add("visible");
-    }
-  }
+    
   
 
   componentDidUpdate(prevProps) {
   if(prevProps.location.pathname !== this.props.location.pathname){
     this.setState({locationUrl:this.props.location.pathname})
   }   
-   this.selectionPage();
+  this.selectedSteps();
 
   }
 
